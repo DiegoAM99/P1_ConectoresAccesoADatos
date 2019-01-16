@@ -7,6 +7,8 @@ package p1_conectores;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -90,6 +92,41 @@ public class GestorConexion {
             sta.close();
         }catch(SQLException ex){
             System.out.println("ERROR: al hacer unDROP TABLE");
+            ex.printStackTrace();
+        }
+    }
+    
+    public void consulta_preparedStatement(){
+        try{
+            String query = "SELECT * FROM album WHERE titulo like ?";
+            PreparedStatement pst = conn1.prepareStatement(query);
+            pst.setString(1,"B%");
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next()){
+                System.out.println("ID -"+ rs.getInt("id")+ "Titulo"+ rs.getString("titulo") + "Autor"+ rs.getString("autor"));
+            }
+            rs.close();
+            pst.close();
+        }catch(SQLException ex){
+            System.out.println("ERROR: al consultar");
+            ex.printStackTrace();
+        }
+    }
+    
+    public void consulta_Statement(){
+        try{
+            Statement sta = conn1.createStatement();
+            String query = "SELECT * FROM album WHERE titulo like 'B%'";
+            ResultSet rs = sta.executeQuery(query);
+            
+            while(rs.next()){
+                System.out.println("ID -"+ rs.getInt("id")+ "Titulo"+ rs.getString("titulo") + "Autor"+ rs.getString("autor"));
+            }
+            rs.close();
+            sta.close();
+        }catch(SQLException ex){
+            System.out.println("ERROR: al consultar");
             ex.printStackTrace();
         }
     }
