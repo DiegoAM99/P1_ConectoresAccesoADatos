@@ -172,12 +172,11 @@ public class GestorConexion {
             Statement sta = conn1.createStatement();
             String query = "SELECT * FROM album";
             ResultSet rs = sta.executeQuery(query);
-            rs.close();
-            sta.close();
+            return rs;
         }catch(SQLException ex){
             System.out.println("ERROR: al consultar");
             ex.printStackTrace();
+            return null;
         }
-        return null;
     }
 }
