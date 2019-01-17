@@ -5,12 +5,14 @@
  */
 package p1_conectores;
 
+import com.mysql.cj.conf.DatabaseUrlContainer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -150,4 +152,32 @@ public class GestorConexion {
             ex.printStackTrace();
     }
   }
+    
+    public void insertar_columna(){
+     try{
+            //Crea un statement
+            Statement sta = conn1.createStatement();
+            
+            //Ejecuta la insercion
+            sta.executeUpdate("ALTER TABLE album ADD Foto BLOB");
+            //Cierra el statement
+            sta.close();
+        }catch(SQLException ex){
+            System.out.println("ERROR: al hacer un ALTER TABLE");
+            ex.printStackTrace();
+        }
+}
+    public ResultSet Mostrar_TablaAlbum(){
+        try{
+            Statement sta = conn1.createStatement();
+            String query = "SELECT * FROM album";
+            ResultSet rs = sta.executeQuery(query);
+            rs.close();
+            sta.close();
+        }catch(SQLException ex){
+            System.out.println("ERROR: al consultar");
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }
