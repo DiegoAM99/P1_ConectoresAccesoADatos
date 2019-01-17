@@ -130,4 +130,24 @@ public class GestorConexion {
             ex.printStackTrace();
         }
     }
+    
+    public void insertar_con_commit(){
+        try{
+            conn1.setAutoCommit(false);
+            Statement sta = conn1.createStatement();
+            sta.executeUpdate("INSERT INTO album " + "VALUES (5,'Let it be', 'The Beatles')");
+            sta.executeUpdate("INSERT INTO album " + "VALUES (6,'Abbey Road', 'The Beatles')");
+            conn1.commit();
+        }
+    catch(SQLException ex){
+            System.out.println("ERROR: al hacer un INSERT");
+            try{
+                if(conn1!=null)
+                    conn1.rollback();
+            }catch(SQLException se2){
+                se2.printStackTrace();
+            }
+            ex.printStackTrace();
+    }
+  }
 }
