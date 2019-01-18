@@ -5,6 +5,10 @@
  */
 package p1_conectores;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author xp
@@ -82,7 +86,27 @@ public class Conectores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMostrarAlbumMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMostrarAlbumMousePressed
-        jTable1.show();
+        ResultSet rs = gc.Mostrar_TablaAlbum();
+        DefaultTableModel modelo = new DefaultTableModel();
+        jTable1.setModel(modelo);
+        
+        try{
+            modelo.addColumn("id");
+            modelo.addColumn("Nombre");
+            modelo.addColumn("anno_publicacion");
+            
+            while(rs.next()){
+                Object[] ob = new Object[3];
+                ob[0] = (rs.getInt(1));
+                ob[1] = (rs.getInt(2));
+                ob[2] = (rs.getInt(3));
+                
+                modelo.addRow(ob);
+                ob = null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jMostrarAlbumMousePressed
 
     /**
