@@ -179,4 +179,17 @@ public class GestorConexion {
             return null;
         }
     }
+    
+    public ResultSet Mostrar_TablaCanciones(){
+        try{
+            Statement sta = conn1.createStatement();
+            String query = "SELECT * FROM cancion";
+            ResultSet rs = sta.executeQuery(query);
+            return rs;
+        }catch(SQLException ex){
+            System.out.println("ERROR: al consultar");
+            ex.printStackTrace();
+            return null;
+        }
+    }
 }

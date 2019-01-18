@@ -35,6 +35,9 @@ public class Conectores extends javax.swing.JFrame {
         jMostrarAlbum = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jMostrarCanciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,16 +61,40 @@ public class Conectores extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Titulo", "Duracion", "Letras"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jMostrarCanciones.setText("Mostrar Tabla Canciones");
+        jMostrarCanciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMostrarCancionesMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1))
                 .addGap(55, 55, 55)
-                .addComponent(jMostrarAlbum)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jMostrarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jMostrarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,8 +105,15 @@ public class Conectores extends javax.swing.JFrame {
                         .addComponent(jMostrarAlbum))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jMostrarCanciones)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,22 +126,47 @@ public class Conectores extends javax.swing.JFrame {
         
         try{
             modelo.addColumn("id");
-            modelo.addColumn("Nombre");
+            modelo.addColumn("Autor");
             modelo.addColumn("anno_publicacion");
             
             while(rs.next()){
-                Object[] ob = new Object[3];
-                ob[0] = (rs.getInt(1));
-                ob[1] = (rs.getInt(2));
-                ob[2] = (rs.getInt(3));
+                Object[] obj1 = new Object[3];
+                obj1[0] = (rs.getInt(1));
+                obj1[1] = (rs.getString(2));
+                obj1[2] = (rs.getString(3));
                 
-                modelo.addRow(ob);
-                ob = null;
+                
+                modelo.addRow(obj1);
+                obj1 = null;
             }
         }catch(SQLException e){
             e.printStackTrace();
         }
     }//GEN-LAST:event_jMostrarAlbumMousePressed
+
+    private void jMostrarCancionesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMostrarCancionesMousePressed
+        ResultSet rs = gc.Mostrar_TablaCanciones();
+        DefaultTableModel modelo = new DefaultTableModel();
+        jTable2.setModel(modelo);
+        
+        try{
+            modelo.addColumn("Titulo");
+            modelo.addColumn("Duracion");
+            modelo.addColumn("Letras");
+            
+            while(rs.next()){
+                Object[] obj2 = new Object[3];
+                obj2[0] = (rs.getInt(1));
+                obj2[1] = (rs.getInt(2));
+                obj2[2] = (rs.getInt(3));
+                
+                modelo.addRow(obj2);
+                obj2 = null;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jMostrarCancionesMousePressed
 
     /**
      * @param args the command line arguments
@@ -146,7 +205,10 @@ public class Conectores extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jMostrarAlbum;
+    private javax.swing.JButton jMostrarCanciones;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
