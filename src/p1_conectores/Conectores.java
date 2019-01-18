@@ -156,10 +156,10 @@ public class Conectores extends javax.swing.JFrame {
             
             while(rs.next()){
                 Object[] obj2 = new Object[3];
-                obj2[0] = (rs.getInt(1));
-                obj2[1] = (rs.getInt(2));
-                obj2[2] = (rs.getInt(3));
-                
+                obj2[0] = (rs.getString(1));
+                obj2[1] = (rs.getString(2));
+                obj2[2] = (rs.getString(3));
+//                obj2[3] = (rs.getInt(4));
                 modelo.addRow(obj2);
                 obj2 = null;
             }
