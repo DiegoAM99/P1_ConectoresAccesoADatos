@@ -38,6 +38,8 @@ public class Conectores extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jMostrarCanciones = new javax.swing.JButton();
+        jAnnadirColumna = new javax.swing.JTextField();
+        jButtonAnnadir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,6 +83,15 @@ public class Conectores extends javax.swing.JFrame {
             }
         });
 
+        jAnnadirColumna.setText("AnnadirColumna");
+
+        jButtonAnnadir.setText("Añadir Columna");
+        jButtonAnnadir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonAnnadirMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,7 +104,9 @@ public class Conectores extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jMostrarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jMostrarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jMostrarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jAnnadirColumna)
+                    .addComponent(jButtonAnnadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -101,11 +114,15 @@ public class Conectores extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jMostrarAlbum))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jMostrarAlbum)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jAnnadirColumna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAnnadir)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -134,7 +151,7 @@ public class Conectores extends javax.swing.JFrame {
                 obj1[0] = (rs.getInt(1));
                 obj1[1] = (rs.getString(2));
                 obj1[2] = (rs.getString(3));
-                
+//                obj1[3] = (rs.getBlob(4));
                 
                 modelo.addRow(obj1);
                 obj1 = null;
@@ -167,6 +184,14 @@ public class Conectores extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jMostrarCancionesMousePressed
+
+    private void jButtonAnnadirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnadirMousePressed
+//        DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
+//        jAnnadirColumna.setText("");
+//        Object nuevo[]= {jAnnadirColumna.getText()};
+//        temp.addColumn(nuevo);
+            gc.insertar_columna();  
+    }//GEN-LAST:event_jButtonAnnadirMousePressed
 
     /**
      * @param args the command line arguments
@@ -204,6 +229,8 @@ public class Conectores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField jAnnadirColumna;
+    private javax.swing.JButton jButtonAnnadir;
     private javax.swing.JButton jMostrarAlbum;
     private javax.swing.JButton jMostrarCanciones;
     private javax.swing.JScrollPane jScrollPane1;

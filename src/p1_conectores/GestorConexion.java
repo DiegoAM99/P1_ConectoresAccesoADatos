@@ -6,12 +6,14 @@
 package p1_conectores;
 
 import com.mysql.cj.conf.DatabaseUrlContainer;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -159,7 +161,7 @@ public class GestorConexion {
             Statement sta = conn1.createStatement();
             
             //Ejecuta la insercion
-            sta.executeUpdate("ALTER TABLE album ADD Foto BLOB");
+            sta.executeUpdate("ALTER TABLE album ADD Foto BLOB" + "VALUES (D:\\DOCUMENTOS\\NetBeansProjects\\P1_Conectores\\src\\img\\reflexion.jpg)");
             //Cierra el statement
             sta.close();
         }catch(SQLException ex){
