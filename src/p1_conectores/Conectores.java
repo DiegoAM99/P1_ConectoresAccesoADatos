@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -263,18 +264,17 @@ public class Conectores extends javax.swing.JFrame {
 
     private void jButtonAnnadirAlbumMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnadirAlbumMousePressed
         if (jTextFieldID.getText().equals("") || jTextFieldAutor.getText().equals("") || jTextFieldAnnoPublicacion.getText().equals("")){
-            jLabel1.setText("Campos incompletos.");
+            jLabel1.setText("Campos incompletos."); //Si los campos estan incompletos, saltará un aviso en el jLabel.
         }
         try{
             gc.conn1.setAutoCommit(false);
-            
             PreparedStatement pst;
-            pst = pc.con.prepareStatement("INSERT INTO album(id, Autor, anno_publicacion)");
-//            sta.executeUpdate("INSERT INTO album(id, Autor, anno_publicacion)");
-            jTextFieldID.getText();
-            jTextFieldAutor.getText();
-            jTextFieldAnnoPublicacion.getText();
+            pst = gc.conn1.prepareStatement("INSERT INTO album(id, Autor, anno_publicacion) VALUES(?,?,?)");
+            pst.setString(1, jTextFieldID.getText());
+            pst.setString(2, jTextFieldAutor.getText());
+            pst.setString(3, jTextFieldAnnoPublicacion.getText());
             pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Album Guardado");
             gc.conn1.commit();
         }
     catch(SQLException ex){
@@ -286,6 +286,7 @@ public class Conectores extends javax.swing.JFrame {
                 se2.printStackTrace();
             }
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Album Duplicado");
     }  
     }//GEN-LAST:event_jButtonAnnadirAlbumMousePressed
 
