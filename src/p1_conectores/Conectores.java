@@ -5,8 +5,10 @@
  */
 package p1_conectores;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -38,8 +40,17 @@ public class Conectores extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jMostrarCanciones = new javax.swing.JButton();
-        jAnnadirColumna = new javax.swing.JTextField();
-        jButtonAnnadir = new javax.swing.JButton();
+        jTextFieldID = new javax.swing.JTextField();
+        jTextFieldAutor = new javax.swing.JTextField();
+        jTextFieldAnnoPublicacion = new javax.swing.JTextField();
+        jButtonAnnadirAlbum = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldTitulo = new javax.swing.JTextField();
+        jTextFieldDuracion = new javax.swing.JTextField();
+        jTextFieldLetras = new javax.swing.JTextField();
+        jButtonAnnadirCancion = new javax.swing.JButton();
+        jButtonModificarAlbum = new javax.swing.JButton();
+        jButtonModificarCancion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,13 +63,13 @@ public class Conectores extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "id", "Titulo", "Autor", "Anno_publicacion"
+                "id", "Autor", "Anno_publicacion"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -83,12 +94,43 @@ public class Conectores extends javax.swing.JFrame {
             }
         });
 
-        jAnnadirColumna.setText("AnnadirColumna");
+        jTextFieldID.setText("id");
 
-        jButtonAnnadir.setText("Añadir Columna");
-        jButtonAnnadir.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTextFieldAutor.setText("Autor");
+
+        jTextFieldAnnoPublicacion.setText("Anno_publicacion");
+
+        jButtonAnnadirAlbum.setText("Añadir");
+        jButtonAnnadirAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButtonAnnadirMousePressed(evt);
+                jButtonAnnadirAlbumMousePressed(evt);
+            }
+        });
+
+        jTextFieldTitulo.setText("Titulo");
+
+        jTextFieldDuracion.setText("Duracion");
+
+        jTextFieldLetras.setText("Letra");
+
+        jButtonAnnadirCancion.setText("Añadir");
+        jButtonAnnadirCancion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonAnnadirCancionMousePressed(evt);
+            }
+        });
+
+        jButtonModificarAlbum.setText("Modificar");
+        jButtonModificarAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonModificarAlbumMousePressed(evt);
+            }
+        });
+
+        jButtonModificarCancion.setText("Modificar");
+        jButtonModificarCancion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonModificarCancionMousePressed(evt);
             }
         });
 
@@ -105,9 +147,25 @@ public class Conectores extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jMostrarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jMostrarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jAnnadirColumna)
-                    .addComponent(jButtonAnnadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(jTextFieldID)
+                    .addComponent(jTextFieldAutor)
+                    .addComponent(jTextFieldAnnoPublicacion)
+                    .addComponent(jTextFieldTitulo)
+                    .addComponent(jTextFieldDuracion)
+                    .addComponent(jTextFieldLetras)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonAnnadirAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonModificarAlbum))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonAnnadirCancion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonModificarCancion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,17 +178,35 @@ public class Conectores extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jMostrarAlbum)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jAnnadirColumna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonAnnadir)))
+                        .addComponent(jTextFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldAnnoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonAnnadirAlbum)
+                            .addComponent(jButtonModificarAlbum))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jMostrarCanciones)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                        .addComponent(jMostrarCanciones)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldLetras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonAnnadirCancion)
+                            .addComponent(jButtonModificarCancion))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         pack();
@@ -185,13 +261,45 @@ public class Conectores extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMostrarCancionesMousePressed
 
-    private void jButtonAnnadirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnadirMousePressed
-//        DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
-//        jAnnadirColumna.setText("");
-//        Object nuevo[]= {jAnnadirColumna.getText()};
-//        temp.addColumn(nuevo);
-            gc.insertar_columna();  
-    }//GEN-LAST:event_jButtonAnnadirMousePressed
+    private void jButtonAnnadirAlbumMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnadirAlbumMousePressed
+        if (jTextFieldID.getText().equals("") || jTextFieldAutor.getText().equals("") || jTextFieldAnnoPublicacion.getText().equals("")){
+            jLabel1.setText("Campos incompletos.");
+        }
+        try{
+            gc.conn1.setAutoCommit(false);
+            
+            PreparedStatement pst;
+            pst = pc.con.prepareStatement("INSERT INTO album(id, Autor, anno_publicacion)");
+//            sta.executeUpdate("INSERT INTO album(id, Autor, anno_publicacion)");
+            jTextFieldID.getText();
+            jTextFieldAutor.getText();
+            jTextFieldAnnoPublicacion.getText();
+            pst.executeUpdate();
+            gc.conn1.commit();
+        }
+    catch(SQLException ex){
+            System.out.println("ERROR: al hacer un INSERT");
+            try{
+                if(gc.conn1!=null)
+                    gc.conn1.rollback();
+            }catch(SQLException se2){
+                se2.printStackTrace();
+            }
+            ex.printStackTrace();
+    }  
+    }//GEN-LAST:event_jButtonAnnadirAlbumMousePressed
+
+    private void jButtonModificarAlbumMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonModificarAlbumMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonModificarAlbumMousePressed
+
+    private void jButtonAnnadirCancionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnadirCancionMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAnnadirCancionMousePressed
+
+    private void jButtonModificarCancionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonModificarCancionMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonModificarCancionMousePressed
 
     /**
      * @param args the command line arguments
@@ -229,13 +337,22 @@ public class Conectores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jAnnadirColumna;
-    private javax.swing.JButton jButtonAnnadir;
+    private javax.swing.JButton jButtonAnnadirAlbum;
+    private javax.swing.JButton jButtonAnnadirCancion;
+    private javax.swing.JButton jButtonModificarAlbum;
+    private javax.swing.JButton jButtonModificarCancion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jMostrarAlbum;
     private javax.swing.JButton jMostrarCanciones;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextFieldAnnoPublicacion;
+    private javax.swing.JTextField jTextFieldAutor;
+    private javax.swing.JTextField jTextFieldDuracion;
+    private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JTextField jTextFieldLetras;
+    private javax.swing.JTextField jTextFieldTitulo;
     // End of variables declaration//GEN-END:variables
 }

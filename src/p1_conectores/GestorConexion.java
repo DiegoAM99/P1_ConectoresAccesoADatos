@@ -161,7 +161,7 @@ public class GestorConexion {
             Statement sta = conn1.createStatement();
             
             //Ejecuta la insercion
-            sta.executeUpdate("ALTER TABLE album ADD Foto BLOB" + "VALUES (D:\\DOCUMENTOS\\NetBeansProjects\\P1_Conectores\\src\\img\\reflexion.jpg)");
+            sta.executeUpdate("ALTER TABLE album ADD Foto BLOB" + "VALUES (D:\\DOCUMENTOS\\NetBeansProjects\\P1_Conectores\\src\\img\\trailer.jpg");
             //Cierra el statement
             sta.close();
         }catch(SQLException ex){
