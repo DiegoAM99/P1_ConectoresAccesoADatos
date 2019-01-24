@@ -291,15 +291,78 @@ public class Conectores extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAnnadirAlbumMousePressed
 
     private void jButtonModificarAlbumMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonModificarAlbumMousePressed
-        // TODO add your handling code here:
+        try{
+            gc.conn1.setAutoCommit(false);
+            PreparedStatement pst;
+            pst = gc.conn1.prepareStatement("Update album SET id=? , autor=? , anno_publicacion=?");
+            pst.setString(1, jTextFieldID.getText());
+            pst.setString(2, jTextFieldAutor.getText());
+            pst.setString(3, jTextFieldAnnoPublicacion.getText());
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Album Modificado");
+            gc.conn1.commit();
+        }
+    catch(SQLException ex){
+            System.out.println("ERROR: al Modificar");
+            try{
+                if(gc.conn1!=null)
+                    gc.conn1.rollback();
+            }catch(SQLException se2){
+                se2.printStackTrace();
+            }
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Album No Modificado");
+    }
     }//GEN-LAST:event_jButtonModificarAlbumMousePressed
 
     private void jButtonAnnadirCancionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnadirCancionMousePressed
-        // TODO add your handling code here:
+        try{
+            gc.conn1.setAutoCommit(false);
+            PreparedStatement pst;
+            pst = gc.conn1.prepareStatement("INSERT INTO cancion(titulo, Duracion, Letras) VALUES(?,?,?)");
+            pst.setString(1, jTextFieldTitulo.getText());
+            pst.setString(2, jTextFieldDuracion.getText());
+            pst.setString(3, jTextFieldLetras.getText());
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Canción Guardada");
+            gc.conn1.commit();
+        }
+    catch(SQLException ex){
+            System.out.println("ERROR: al hacer un INSERT");
+            try{
+                if(gc.conn1!=null)
+                    gc.conn1.rollback();
+            }catch(SQLException se2){
+                se2.printStackTrace();
+            }
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Canción Duplicada");
+    }
     }//GEN-LAST:event_jButtonAnnadirCancionMousePressed
 
     private void jButtonModificarCancionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonModificarCancionMousePressed
-        // TODO add your handling code here:
+        try{
+            gc.conn1.setAutoCommit(false);
+            PreparedStatement pst;
+            pst = gc.conn1.prepareStatement("Update cancion SET titulo=? , Duracion=? , Letras=?");
+            pst.setString(1, jTextFieldTitulo.getText());
+            pst.setString(2, jTextFieldDuracion.getText());
+            pst.setString(3, jTextFieldLetras.getText());
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cancion Modificada");
+            gc.conn1.commit();
+        }
+    catch(SQLException ex){
+            System.out.println("ERROR: al Modificar");
+            try{
+                if(gc.conn1!=null)
+                    gc.conn1.rollback();
+            }catch(SQLException se2){
+                se2.printStackTrace();
+            }
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Cancion No Modificada");
+    }
     }//GEN-LAST:event_jButtonModificarCancionMousePressed
 
     /**
