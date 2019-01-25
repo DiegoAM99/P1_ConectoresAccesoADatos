@@ -165,51 +165,48 @@ public class Conectores extends javax.swing.JFrame {
         });
 
         jButtonEliminarCancion.setText("Eliminar Cancion");
+        jButtonEliminarCancion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonEliminarCancionMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jMostrarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jMostrarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldID)
-                            .addComponent(jTextFieldAutor)
-                            .addComponent(jTextFieldAnnoPublicacion)
-                            .addComponent(jTextFieldTitulo)
-                            .addComponent(jTextFieldDuracion)
-                            .addComponent(jTextFieldLetras)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonAnnadirAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonModificarAlbum))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonAnnadirCancion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonModificarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldID_album))
-                        .addContainerGap(21, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonEliminarAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonEliminarCancion)
-                        .addGap(62, 62, 62))))
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonEliminarCancion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jMostrarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jMostrarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldID)
+                        .addComponent(jTextFieldAutor)
+                        .addComponent(jTextFieldAnnoPublicacion)
+                        .addComponent(jTextFieldTitulo)
+                        .addComponent(jTextFieldDuracion)
+                        .addComponent(jTextFieldLetras)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButtonAnnadirAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButtonModificarAlbum))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButtonAnnadirCancion)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButtonModificarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldID_album)
+                        .addComponent(jButtonEliminarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,13 +227,14 @@ public class Conectores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonAnnadirAlbum)
-                            .addComponent(jButtonModificarAlbum))))
+                            .addComponent(jButtonModificarAlbum))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonEliminarAlbum)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonEliminarAlbum)
-                        .addGap(18, 18, 18)
+                        .addGap(41, 41, 41)
                         .addComponent(jMostrarCanciones)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,13 +244,13 @@ public class Conectores extends javax.swing.JFrame {
                         .addComponent(jTextFieldLetras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldID_album, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonAnnadirCancion)
                             .addComponent(jButtonModificarCancion))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonEliminarCancion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -317,7 +315,7 @@ public class Conectores extends javax.swing.JFrame {
         try{
             gc.conn1.setAutoCommit(false);
             PreparedStatement pst;
-            pst = gc.conn1.prepareStatement("INSERT INTO album(id, Autor, anno_publicacion) VALUES(?,?,?)");
+            pst = gc.conn1.prepareStatement("INSERT INTO album (id, Autor, anno_publicacion) VALUES(?,?,?)");
             pst.setString(1, jTextFieldID.getText());
             pst.setString(2, jTextFieldAutor.getText());
             pst.setString(3, jTextFieldAnnoPublicacion.getText());
@@ -420,8 +418,50 @@ public class Conectores extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAnnadirCancionActionPerformed
 
     private void jButtonEliminarAlbumMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarAlbumMousePressed
-      
+      try{
+            gc.conn1.setAutoCommit(false);
+            PreparedStatement pst;
+            pst = gc.conn1.prepareStatement("DELETE FROM album  WHERE id=?");
+            pst.setInt(1, Integer.parseInt(jTextFieldID.getText()));
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Album Borrado");
+            gc.conn1.commit();
+        }
+    catch(SQLException ex){
+            System.out.println("ERROR: al Borrar");
+            try{
+                if(gc.conn1!=null)
+                    gc.conn1.rollback();
+            }catch(SQLException se2){
+                se2.printStackTrace();
+            }
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Album No Eliminado");
+    }
     }//GEN-LAST:event_jButtonEliminarAlbumMousePressed
+
+    private void jButtonEliminarCancionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarCancionMousePressed
+        try{
+            gc.conn1.setAutoCommit(false);
+            PreparedStatement pst;
+            pst = gc.conn1.prepareStatement("DELETE FROM cancion  WHERE id_album =?");
+            pst.setInt(1, Integer.parseInt(jTextFieldID_album.getText()));
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cancion Borrada");
+            gc.conn1.commit();
+        }
+    catch(SQLException ex){
+            System.out.println("ERROR: al Borrar");
+            try{
+                if(gc.conn1!=null)
+                    gc.conn1.rollback();
+            }catch(SQLException se2){
+                se2.printStackTrace();
+            }
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Cancion No Eliminado");
+    }
+    }//GEN-LAST:event_jButtonEliminarCancionMousePressed
 
     /**
      * @param args the command line arguments
