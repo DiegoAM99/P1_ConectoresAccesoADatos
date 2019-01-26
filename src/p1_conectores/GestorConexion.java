@@ -33,7 +33,7 @@ public class GestorConexion {
         try{
             String url="jdbc:mysql://localhost:3306/discografica?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";          
             String user = "root";
-            String password = "root";
+            String password = "";
             
             conn1 = (Connection) DriverManager.getConnection(url, user, password);
             if(conn1 != null){
@@ -161,7 +161,7 @@ public class GestorConexion {
             Statement sta = conn1.createStatement();
             
             //Ejecuta la insercion
-            sta.executeUpdate("ALTER TABLE album ADD Foto BLOB" + "VALUES (D:\\DOCUMENTOS\\NetBeansProjects\\P1_Conectores\\src\\img\\trailer.jpg");
+            sta.executeUpdate("ALTER TABLE album ADD Foto BLOB");
             //Cierra el statement
             sta.close();
         }catch(SQLException ex){

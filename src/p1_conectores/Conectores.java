@@ -67,6 +67,7 @@ public class Conectores extends javax.swing.JFrame {
         jTextFieldID_album = new javax.swing.JTextField();
         jButtonEliminarAlbum = new javax.swing.JButton();
         jButtonEliminarCancion = new javax.swing.JButton();
+        jButtonAnnadirColumnaFotos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -171,6 +172,13 @@ public class Conectores extends javax.swing.JFrame {
             }
         });
 
+        jButtonAnnadirColumnaFotos.setText("Añadir Columna Fotos");
+        jButtonAnnadirColumnaFotos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonAnnadirColumnaFotosMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,25 +195,25 @@ public class Conectores extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonEliminarCancion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jMostrarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jMostrarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldID)
-                        .addComponent(jTextFieldAutor)
-                        .addComponent(jTextFieldAnnoPublicacion)
-                        .addComponent(jTextFieldTitulo)
-                        .addComponent(jTextFieldDuracion)
-                        .addComponent(jTextFieldLetras)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButtonAnnadirAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButtonModificarAlbum))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButtonAnnadirCancion)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButtonModificarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jTextFieldID_album)
-                        .addComponent(jButtonEliminarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jMostrarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jMostrarCanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldID)
+                    .addComponent(jTextFieldAutor)
+                    .addComponent(jTextFieldAnnoPublicacion)
+                    .addComponent(jTextFieldTitulo)
+                    .addComponent(jTextFieldDuracion)
+                    .addComponent(jTextFieldLetras)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonAnnadirAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonModificarAlbum))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonAnnadirCancion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonModificarCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldID_album)
+                    .addComponent(jButtonEliminarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAnnadirColumnaFotos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -234,7 +242,8 @@ public class Conectores extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addComponent(jButtonAnnadirColumnaFotos)
+                        .addGap(18, 18, 18)
                         .addComponent(jMostrarCanciones)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -463,6 +472,10 @@ public class Conectores extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jButtonEliminarCancionMousePressed
 
+    private void jButtonAnnadirColumnaFotosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnadirColumnaFotosMousePressed
+        gc.insertar_columna();
+    }//GEN-LAST:event_jButtonAnnadirColumnaFotosMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -501,6 +514,7 @@ public class Conectores extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAnnadirAlbum;
     private javax.swing.JButton jButtonAnnadirCancion;
+    private javax.swing.JButton jButtonAnnadirColumnaFotos;
     private javax.swing.JButton jButtonEliminarAlbum;
     private javax.swing.JButton jButtonEliminarCancion;
     private javax.swing.JButton jButtonModificarAlbum;

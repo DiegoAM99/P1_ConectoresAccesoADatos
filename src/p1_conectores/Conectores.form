@@ -37,28 +37,27 @@
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jButtonEliminarCancion" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jMostrarAlbum" max="32767" attributes="0"/>
-                      <Component id="jMostrarCanciones" max="32767" attributes="0"/>
-                      <Component id="jTextFieldID" max="32767" attributes="0"/>
-                      <Component id="jTextFieldAutor" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldAnnoPublicacion" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldTitulo" max="32767" attributes="0"/>
-                      <Component id="jTextFieldDuracion" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldLetras" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButtonAnnadirAlbum" min="-2" pref="72" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButtonModificarAlbum" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButtonAnnadirCancion" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButtonModificarCancion" min="-2" pref="84" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jTextFieldID_album" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButtonEliminarAlbum" max="32767" attributes="0"/>
+                  <Component id="jMostrarAlbum" max="32767" attributes="0"/>
+                  <Component id="jMostrarCanciones" max="32767" attributes="0"/>
+                  <Component id="jTextFieldID" max="32767" attributes="0"/>
+                  <Component id="jTextFieldAutor" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldAnnoPublicacion" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldTitulo" max="32767" attributes="0"/>
+                  <Component id="jTextFieldDuracion" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldLetras" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jButtonAnnadirAlbum" min="-2" pref="72" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonModificarAlbum" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jButtonAnnadirCancion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonModificarCancion" min="-2" pref="84" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jTextFieldID_album" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jButtonEliminarAlbum" max="32767" attributes="0"/>
+                  <Component id="jButtonAnnadirColumnaFotos" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
@@ -93,8 +92,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane2" min="-2" pref="196" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jButtonAnnadirColumnaFotos" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jMostrarCanciones" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextFieldTitulo" min="-2" max="-2" attributes="0"/>
@@ -311,6 +311,14 @@
       </Properties>
       <Events>
         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonEliminarCancionMousePressed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonAnnadirColumnaFotos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#xf1;adir Columna Fotos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonAnnadirColumnaFotosMousePressed"/>
       </Events>
     </Component>
   </SubComponents>
