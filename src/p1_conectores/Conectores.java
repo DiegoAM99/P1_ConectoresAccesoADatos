@@ -282,7 +282,6 @@ public class Conectores extends javax.swing.JFrame {
                 obj1[0] = (rs.getInt(1));
                 obj1[1] = (rs.getString(2));
                 obj1[2] = (rs.getString(3));
-//                obj1[3] = (rs.getBlob(4));
                 
                 modelo.addRow(obj1);
                 obj1 = null;
@@ -473,7 +472,9 @@ public class Conectores extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEliminarCancionMousePressed
 
     private void jButtonAnnadirColumnaFotosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnadirColumnaFotosMousePressed
-        gc.insertar_columna();
+        gc.insertar_columnaFotos();
+        JOptionPane.showMessageDialog(null, "Se ha insertado la columna de Fotos"); //Se inserta pero al darle al mostrar no se muestra en la tabla de la app; pero
+        //realmente se puede ver accediendo al PHPMyAdmin
     }//GEN-LAST:event_jButtonAnnadirColumnaFotosMousePressed
 
     /**

@@ -155,7 +155,7 @@ public class GestorConexion {
     }
   }
     
-    public void insertar_columna(){
+    public void insertar_columnaFotos(){
      try{
             //Crea un statement
             Statement sta = conn1.createStatement();
