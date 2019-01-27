@@ -473,7 +473,7 @@ public class Conectores extends javax.swing.JFrame {
 
     private void jButtonAnnadirColumnaFotosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnnadirColumnaFotosMousePressed
         gc.insertar_columnaFotos();
-        JOptionPane.showMessageDialog(null, "Se ha insertado la columna de Fotos"); //Se inserta pero al darle al mostrar no se muestra en la tabla de la app; pero
+        JOptionPane.showMessageDialog(null, "Se ha insertado la columna de Fotos");//Se inserta pero al darle al mostrar no se muestra en la tabla de la app; pero
         //realmente se puede ver accediendo al PHPMyAdmin
     }//GEN-LAST:event_jButtonAnnadirColumnaFotosMousePressed
 
