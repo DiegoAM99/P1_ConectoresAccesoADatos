@@ -12,7 +12,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 /**
  *
- * @author xp
+ * @author Diego Álvarez
  */
 public class PoolConexiones {
     Connection con = null;

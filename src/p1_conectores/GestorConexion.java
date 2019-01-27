@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author xp
+ * @author Diego Álvarez
  */
 public class GestorConexion {
     

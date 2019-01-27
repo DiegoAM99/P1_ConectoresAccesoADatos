@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author xp
+ * @author Diego Álvarez
  */
 public class Conectores extends javax.swing.JFrame {
     GestorConexion gc = new GestorConexion();
